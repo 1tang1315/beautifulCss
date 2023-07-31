@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      background-color: #2e2e2e;
+      /* 法一:  */
+      /* z-index: -1; */
+    }
+    div{
+      width: 120px;
+      height: 120px;
+      background-color: #e08027;
+      position: relative;
+      border-radius: 60px 60px 10px 10px;
+
+      /* 法二:  */
+      transform-style: preserve-3d;
+    }
+    div::before {
+      content: '';
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      position: absolute;
+      top: -25px;
+      left: 35px;
+      background-color: #f2ad43;
+      /* 铃铛 */
+      /* box-shadow: 0 120px #824b20; */
+
+      /* 灯泡 */
+      /* 灯泡  增加光晕*/
+      box-shadow: 0 120px #824b20, 0 120px 40px;
+       /* 法一:  */
+      /* z-index: -1; */
+
+      /* 法二:  */
+      transform: translateZ(-0.1px);
+    }
+  </style>
+</head>
+<body>
+  <div>
+
+  </div>
+</body>
+</html>
