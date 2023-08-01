@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    :root {
+      --bg: #121212;
+      --eraser: #e53466;
+      --divide: #d8d8d8;
+      --main-l: #f06a35;
+      --main-m: #f68c30;
+      --main-r: #ffa927;
+      --wood: #f4c09b;
+      --tip: #5e381f;
+    }
+    body, html {
+      height: 100vh;
+      background-color: var(--bg);
+      display: grid;
+      place-items: center;
+      transform-style: preserve-3d;
+    }
+    div{
+      width: 120px;
+      height: 240px;
+      background: linear-gradient(
+      var(--eraser) 70%, var(--divide) 70%) no-repeat, 
+      linear-gradient(to right, 
+      var(--main-l) 33.33%, 
+      var(--main-m) 33.33%, 
+      var(--main-m) 66.66%, 
+      var(--main-r) 66.66%);
+      background-size: 100% 30%, 100% 70%;
+      border-radius: 30px 30px 0 0;
+      position: relative;
+      transform: rotateZ(30deg);
+    }
+    div::after {
+      content: '';
+      width: 120px;
+      height: 110px;
+      background: linear-gradient(var(--wood) 70%, var(--tip) 70%);
+      position: absolute;
+      bottom: -110px;
+      /* 
+       clip-path 是 CSS3 中的一个属性，用于裁剪元素的可见部分。polygon() 是 clip-path 中的一种函数，用于创建一个多边形的裁剪区域。
+
+       polygon() 中可以使用多个坐标值来定义多边形的各个顶点，每个坐标值由两个数字组成，分别表示该点在横坐标和纵坐标上的位置。例如，polygon(0 0, 100% 0, 50% 100%) 表示一个三角形，该三角形的顶点分别位于左上角、右上角和正中央。
+      */
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+    }
+    div::before {
+      content: '';
+      width: 120px;
+      height: 20px;
+      position: absolute;
+      bottom: 0;
+      background: radial-gradient(circle at 20px 20px, var(--wood) 20px, transparent 0);
+      /* 表示宽和高  x轴 y轴 */
+      background-size: 40px 20px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+
+  </div>
+</body>
+</html>
